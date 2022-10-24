@@ -5,6 +5,10 @@
 # Записываем результат в файл.
 
 def polynomial_notation(K):
+    coefficient=[random.randint(-100, 100)]
+    for i in range(1, k+1):
+        coefficient.append(random.randint(-100, 100))
+    print(coefficient)  
     polindrom = ''
     for i in range(K, 0, -1):
         if coefficient[i] == 1:
@@ -24,10 +28,10 @@ def polynomial_notation(K):
 
 import random
 k = int(input('Введите натуральное число '))
-coefficient=[random.randint(-100, 100)]
-for i in range(1, k+1):
-    coefficient.append(random.randint(-100, 100))
-print(coefficient)  
+# coefficient=[random.randint(-100, 100)]
+# for i in range(1, k+1):
+#     coefficient.append(random.randint(-100, 100))
+# print(coefficient)  
 
 polyndrom = polynomial_notation(k)
 polynom=open('polynom.txt', 'w')

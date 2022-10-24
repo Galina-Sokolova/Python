@@ -17,12 +17,11 @@ def polynomial_notation(K):
             polindrom+='+'+str(coefficient[i])+'x^'+str(i)   
     if coefficient[0] != 0:        
         polindrom+='+'+str(coefficient[0])  
-    polindrom = polindrom.replace("+-", "-").replace("^1", '')+'=0'  
+    polindrom = polindrom.replace("^1+", "+").replace("+-", "-")+'=0'  
     if polindrom[0] == '+':
         polindrom = polindrom[1:]
     return polindrom
 
-#print(polindrom)  
 import random
 k = int(input('Введите натуральное число '))
 coefficient=[random.randint(-100, 100)]

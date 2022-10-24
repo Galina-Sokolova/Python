@@ -40,7 +40,6 @@ polynom1.writelines(polyndrom1)
 polynom1.close()
 
 k2 = int(input('Введите натуральное число '))
-
 polyndrom2 = polynomial_notation(k2)
 print(polyndrom2)
 polynom2=open('pol2.txt', 'w')
@@ -52,15 +51,18 @@ pol1_lst=f1.readline()
 pol1_lst2=pol1_lst.replace(" ", "").replace("-", "+-")[:-2].split("+")
 print(pol1_lst)
 print(pol1_lst2)
-
+exit()
 coef1={}
 if 'x' not in pol1_lst2[-1]:
     #coef1[0]=int(pol1_lst2[-1])
     #del pol1_lst2[-1]
     pol1_lst2[-1]+='x^0'
+    #print(pol1_lst2[-1])
+
 for i in range(len(pol1_lst2)):
     if '^' not in pol1_lst2[i]:
         pol1_lst2[i]+='^1'
+        print(pol1_lst2[i])
 
 for i in pol1_lst2:
     a, b = i.split('x')
@@ -72,3 +74,32 @@ for i in pol1_lst2:
 print(pol1_lst2)
 print(coef1)
 f1.close()
+
+f2 = open('pol2.txt', 'r')
+pol2_lst=f2.readline()
+pol2_lst2=pol2_lst.replace(" ", "").replace("-", "+-")[:-2].split("+")
+print(pol2_lst)
+print(pol2_lst2)
+
+coef2={}
+if 'x' not in pol2_lst2[-1]:
+    #coef1[0]=int(pol1_lst2[-1])
+    #del pol1_lst2[-1]
+    pol2_lst2[-1]+='x^0'
+    #print(pol1_lst2[-1])
+
+for i in range(len(pol2_lst2)):
+    if '^' not in pol2_lst2[i]:
+        pol2_lst2[i]+='^1'
+        print(pol2_lst2[i])
+
+for i in pol2_lst2:
+    a1, b1 = i.split('x')
+    if a1 == '':
+        a1=1
+    elif a1 == '-':
+        a1=-1
+    coef2[int(b1[-1])]=int(a1)            
+print(pol2_lst2)
+print(coef2)
+f2.close()

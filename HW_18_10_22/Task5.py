@@ -9,28 +9,44 @@
 # 40x⁹ - x⁸ -5x⁷ + 15x⁶ +5x⁴ + 5x³ + x² - 13x + 53 = 0
 
 import random
-import Task4 as t
+
+def polynomial_notation(K):
+    coefficient=[random.randint(-10, 10)]
+    for i in range(1, k1+1):
+        coefficient.append(random.randint(-10, 10))
+    polindrom = ''
+    for i in range(K, 0, -1):
+        if coefficient[i] == 1:
+            polindrom+='+x^'+str(i)
+        elif coefficient[i] == -1:  
+            polindrom+='-x^'+str(i) 
+        elif coefficient[i] == 0:
+            polindrom+=''
+        else:
+            polindrom+='+'+str(coefficient[i])+'x^'+str(i)   
+    if coefficient[0] != 0:        
+        polindrom+='+'+str(coefficient[0])  
+    polindrom = polindrom.replace("^1+", "+").replace("+-", "-")+'=0'  
+    if polindrom[0] == '+':
+        polindrom = polindrom[1:]
+    return polindrom
+
 
 k1 = int(input('Введите натуральное число '))
-coefficient1=[random.randint(-10, 10)]
-for i in range(1, k1+1):
-    coefficient1.append(random.randint(-10, 10))
-
-polyndrom1 = t.polynomial_notation(k1)
+polyndrom1 = polynomial_notation(k1)
+print(polyndrom1)
 polynom1=open('pol1.txt', 'w')
 polynom1.writelines(polyndrom1)
 polynom1.close()
 
 k2 = int(input('Введите натуральное число '))
-coefficient2=[random.randint(-10, 10)]
-for i in range(1, k2+1):
-    coefficient2.append(random.randint(-10, 10))
 
-polyndrom2 = t.polynomial_notation(k2)
+polyndrom2 = polynomial_notation(k2)
+print(polyndrom2)
 polynom2=open('pol2.txt', 'w')
 polynom2.writelines(polyndrom2)
 polynom2.close()
-exit()
+
 f1 = open('pol1.txt', 'r')
 pol1_lst=f1.readline()
 pol1_lst2=pol1_lst.replace(" ", "").replace("-", "+-")[:-2].split("+")

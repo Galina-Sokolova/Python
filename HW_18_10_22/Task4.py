@@ -6,7 +6,7 @@
 
 def polynomial_notation(K):
     coefficient=[random.randint(-100, 100)]
-    for i in range(1, k+1):
+    for i in range(1, K+1):
         coefficient.append(random.randint(-100, 100))
     print(coefficient)  
     polindrom = ''

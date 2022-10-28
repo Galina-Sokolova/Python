@@ -48,7 +48,6 @@ def man_move(total, limit, player):
     total-=num
     clear_screen()
     print(f'осталось {total} конфет')
-
     return total
 
 total = 117
@@ -65,7 +64,9 @@ if game_option == 2:
 if player == 1:
     print("Выйграл первый игрок")
 else:
-    print("Выйграл второй игрок")                    
+    print("Выйграл второй игрок") 
+
+if game_option == 1:                       
 
 
 

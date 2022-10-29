@@ -72,9 +72,11 @@ def man_move(total, limit, player):
 
 def bot_move(total, limit):
     rem = total%limit
-    if rem == 0 or rem == 1:
+    if rem == 1:
         num = limit
-    else:    
+    elif rem == 0:   
+        num = limit-1
+    else:     
         num = total%limit-1
     print(f'\t\t\tBot взял конфет: {num}')
     total-=num
@@ -82,7 +84,7 @@ def bot_move(total, limit):
     print(f'осталось {total} конфет')
     return total    
 
-total = 134
+total = 2021
 limit = 28    
 game_option = choose_game_option()
 if game_option == 2:

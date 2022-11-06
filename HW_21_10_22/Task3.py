@@ -32,12 +32,16 @@ def check_is_win(symbol):
     for n in range(3):
         check_is_line(board[n][0], board[n][1], board[n][2], symbol)
         check_is_line(board[0][n], board[1][n], board[2][n], symbol)
-    check_is_line(board[0][2], board[1][1], board[0][2], symbol)
+    check_is_line(board[2][0], board[1][1], board[0][2], symbol)
     check_is_line(board[0][0], board[1][1], board[2][2], symbol)
 
 def check_is_line(i1, i2, i3, symbol):
     if i1['text'] == symbol and i2['text'] == symbol and i3['text'] == symbol:
         i1['background'] = i2['background'] = i3['background'] = 'OliveDrab1'
+        if symbol == 'X':
+            print('Вы победили!!!')
+        elif symbol == 'O':
+            print('Попробуйте ещё раз')  
         global game_run
         game_run = False
 
@@ -45,14 +49,14 @@ def check_is_line(i1, i2, i3, symbol):
 def can_win(i1, i2, i3, symbol):
     res = False
     if i1['text'] == symbol and i2['text'] == symbol and i3['text'] == ' ':
-        i3['text'] == 'O'
-        res = True
+       i3['text'] = 'O'
+       res = True
     if i1['text'] == symbol and i2['text'] == ' ' and i3['text'] == symbol:
-        i2['text'] == 'O'
-        res = True
+       i2['text'] = 'O'
+       res = True
     if i1['text'] == ' ' and i2['text'] == symbol and i3['text'] == symbol:
-        i1['text'] == 'O'
-        res = True
+       i1['text'] = 'O'
+       res = True
     return res
 
 def computer_move():
@@ -74,9 +78,11 @@ def computer_move():
             return
     if can_win(board[0][0], board[1][1], board[2][2], 'X'):
             return
+               
     while True:
         row = random.randint(0, 2)
         col = random.randint(0, 2)
+             
         if board[row][col]['text'] == ' ':
             board[row][col]['text'] = 'O'
             break

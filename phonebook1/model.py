@@ -1,16 +1,5 @@
 import c_view
 
-
-#directory = None
-# directory = [['      ФИО       ', '   телефон  ', '   комментарий  ']]
-# def create_directory(directory):
-#     value = c_view.enter_entry()
-#     directory.append(value)
-#     return directory
-
-#print(create_directory())
-#print ph_dir
-
 def add_contact():
     with open('direct.txt', 'a', encoding='utf-8') as file:
         data = c_view.enter_entry()
